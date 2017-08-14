@@ -1,0 +1,22 @@
+@import '../sass/colors';
+
+.app__header {
+  text-align: center;
+  background-color: $color-lightblue;
+  padding: 30px 10px;
+}
+
+.app__header--title {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: $color-gray;
+}
+
+.app__header--secondary {
+  color: $color-darkblue;
+}
+
+.app__content {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 700px;
+}

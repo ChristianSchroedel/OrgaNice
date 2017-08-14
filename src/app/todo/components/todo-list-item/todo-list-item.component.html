@@ -1,0 +1,8 @@
+<input class="item__interaction item__interaction--done"
+       type="checkbox"
+       [checked]="done"
+       (change)="doneChanged.emit()">
+<span class="item__title">{{title}}</span>
+<div class="item__interaction item__interaction--delete"
+    (click)="deletePressed.emit()">
+</div>

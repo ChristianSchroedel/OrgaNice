@@ -1,0 +1,68 @@
+@import '../../../../sass/colors';
+
+:host {
+  display: flex;
+
+  background-color: $color-whitepale;
+  box-shadow: $color-darkgray 0px 1px 1px;
+}
+
+:host.item--done {
+  .item__title {
+    color: $color-lightgray;
+    text-decoration: line-through;
+  }
+}
+
+.item__title {
+  flex: 1 1 auto;
+  padding: 12px 0;
+}
+
+.item__interaction {
+  margin: 10px;
+  height: 20px;
+  min-width: 20px;
+}
+
+.item__interaction--done {
+  -webkit-appearance: none;
+  position: relative;
+
+  border: 1px solid $color-darkgray;
+  box-shadow: 0 0 1px $color-darkgray;
+  background-color: $color-lightblue;
+
+  &:checked::after {
+    content: "\2713";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 1.4em;
+    line-height: 20px;
+    color: $color-darkblue;
+  }
+}
+
+.item__interaction--delete {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: 'X';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: $color-darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    line-height: 20px;
+    text-align: center;
+  }
+}

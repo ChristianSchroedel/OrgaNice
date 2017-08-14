@@ -1,0 +1,38 @@
+@import '../../../../sass/colors';
+
+:host {
+  display: block;
+}
+
+.todo__add-task {
+  display: flex;
+}
+
+.todo__add-task--name {
+  flex: 1 0 auto;
+  padding: 2px 5px;
+  
+  font-size: 1.2em;
+
+  border: 1px solid $color-darkgray;
+  background-color: $color-whitepale;
+}
+
+.todo__add-task--submit {
+  margin-left: 10px;  
+  padding: 2px 20px;
+
+  font-size: 1.2em;
+  color: $color-white;
+
+  border: none;
+  background-color: $color-darkblue;
+}
+
+.todo-list {
+  padding-top: 10px;
+}
+
+.todo-list__item ~ .todo-list__item {
+  margin-top: 3px;
+}

@@ -1,0 +1,26 @@
+<div class="todo__add-task">
+  <input type="text"
+        placeholder="Task name"
+        class="todo__add-task--name"
+        [(ngModel)]="todoName"/>
+  <button class="todo__add-task--submit"
+          (click)="addTodo()">
+    Add
+  </button>
+</div>
+
+<div class="todo-list">
+  <div *ngIf="(todos$ | async).length > 0;else no_todos">
+    <app-todo-list-item *ngFor="let todo of todos$ | async"
+                        class="todo-list__item"
+                        [title]="todo.title"
+                        [done]="todo.done"
+                        (deletePressed)="removeTodo(todo.id)"
+                        (doneChanged)="toggleTodoDone(todo)">
+    </app-todo-list-item>
+  </div>
+
+  <ng-template #no_todos>
+    <p>Nothing to do ... You must be bored :-(</p>
+  </ng-template>
+</div>

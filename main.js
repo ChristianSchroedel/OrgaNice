@@ -21,7 +21,8 @@ const store = new Store({
   configName: 'user-preferences',
   dataName: 'stored-data',
   defaults: {
-    windowBounds: {width: 800, height: 600}
+    windowBounds: {width: 800, height: 600},
+    windowPosition: {x: 400, y: 400}
   }
 });
 
@@ -39,14 +40,36 @@ ipcMain.on('read-data', (event, args) => {
 
 function createWindow () {
   const {width, height} = store.getUserPreference('windowBounds');
+  const {x, y} = store.getUserPreference('windowPosition');
 
   // Create the browser window.
-  mainWindow = new BrowserWindow({width, height});
+  mainWindow = new BrowserWindow({
+    width,
+    height,
+    x,
+    y,
+    minWidth: 350,
+    minHeight: 350,
+    title: 'Orga Nice',
+    maximizable: false,
+    fullscreenable: false,
+    show: false
+  });
 
   mainWindow.on('resize', () => {
     const {width, height} = mainWindow.getBounds();
 
     store.setUserPreference('windowBounds', {width, height});
+  });
+
+  mainWindow.on('move', () => {
+    const {x, y} = mainWindow.getBounds();
+
+    store.setUserPreference('windowPosition', {x, y});
+  });
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
   });
 
   // and load the index.html of the app.
@@ -60,7 +83,7 @@ function createWindow () {
   // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.

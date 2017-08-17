@@ -4,6 +4,9 @@
   text-align: center;
   background-color: $color-lightblue;
   padding: 30px 10px;
+
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
 }
 
 .app__header--title {

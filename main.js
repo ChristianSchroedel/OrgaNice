@@ -1,4 +1,7 @@
 const electron = require('electron');
+
+require('electron-reload')(__dirname);
+
 // Module to control application life.
 const app = electron.app;
 const ipcMain = electron.ipcMain;

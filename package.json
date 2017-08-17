@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && electron .",
+    "start": "ng serve",
+    "start.electron": "electron .",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -35,6 +36,7 @@
     "@types/node": "~6.0.60",
     "codelyzer": "~3.0.1",
     "electron": "~1.7.5",
+    "electron-reload": "^1.2.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
